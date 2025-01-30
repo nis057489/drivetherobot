@@ -1,0 +1,183 @@
+[0.000000] (-) TimerEvent: {}
+[0.000149] (cpp_pubsub) JobQueued: {'identifier': 'cpp_pubsub', 'dependencies': OrderedDict()}
+[0.000263] (cpp_pubsub) JobStarted: {'identifier': 'cpp_pubsub'}
+[0.005512] (cpp_pubsub) JobProgress: {'identifier': 'cpp_pubsub', 'progress': 'cmake'}
+[0.005800] (cpp_pubsub) JobProgress: {'identifier': 'cpp_pubsub', 'progress': 'build'}
+[0.006167] (cpp_pubsub) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/ros_ws/build/cpp_pubsub', '--', '-j32', '-l32'], 'cwd': '/root/ros_ws/build/cpp_pubsub', 'env': OrderedDict([('HOSTNAME', 'tippy'), ('GIT_ASKPASS', '/root/.vscode-server/bin/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba/bin/helpers/browser.sh'), ('HOME', '/root'), ('TERM_PROGRAM_VERSION', '1.96.4'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-b1e1dbaa-9a66-4d81-8de6-cf0322f3ebfe.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-ace85d96-174e-4454-9a96-65d5bfb4ac82.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-ace85d96-174e-4454-9a96-65d5bfb4ac82.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-bade0d0e14.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-ace85d96-174e-4454-9a96-65d5bfb4ac82.sock'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/root/ros_ws/build/cpp_pubsub'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.023981] (cpp_pubsub) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.088168] (cpp_pubsub) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[0.099844] (-) TimerEvent: {}
+[0.122821] (cpp_pubsub) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[0.122939] (cpp_pubsub) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[0.122980] (cpp_pubsub) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[0.123188] (cpp_pubsub) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[0.123849] (cpp_pubsub) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[0.123884] (cpp_pubsub) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[0.124039] (cpp_pubsub) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[0.124580] (cpp_pubsub) StdoutLine: {'line': b'-- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.138864] (cpp_pubsub) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.140125] (cpp_pubsub) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.143156] (cpp_pubsub) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.147932] (cpp_pubsub) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.154506] (cpp_pubsub) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.171254] (cpp_pubsub) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.171965] (cpp_pubsub) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.199904] (-) TimerEvent: {}
+[0.231815] (cpp_pubsub) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.258689] (cpp_pubsub) StdoutLine: {'line': b'-- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[0.265291] (cpp_pubsub) StdoutLine: {'line': b'-- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[0.275678] (cpp_pubsub) StdoutLine: {'line': b'-- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)\n'}
+[0.299962] (-) TimerEvent: {}
+[0.307680] (cpp_pubsub) StdoutLine: {'line': b"-- Checking for module 'eigen3'\n"}
+[0.315823] (cpp_pubsub) StdoutLine: {'line': b'--   Found eigen3, version 3.4.0\n'}
+[0.336093] (cpp_pubsub) StdoutLine: {'line': b'-- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") \n'}
+[0.336191] (cpp_pubsub) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[0.362001] (cpp_pubsub) StdoutLine: {'line': b"-- Checking for module 'flann'\n"}
+[0.369782] (cpp_pubsub) StdoutLine: {'line': b'--   Found flann, version 1.9.1\n'}
+[0.391561] (cpp_pubsub) StdoutLine: {'line': b'-- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  \n'}
+[0.391624] (cpp_pubsub) StdoutLine: {'line': b'-- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)\n'}
+[0.400019] (-) TimerEvent: {}
+[0.500170] (-) TimerEvent: {}
+[0.600413] (-) TimerEvent: {}
+[0.700636] (-) TimerEvent: {}
+[0.800869] (-) TimerEvent: {}
+[0.901120] (-) TimerEvent: {}
+[0.986231] (cpp_pubsub) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[0.993868] (cpp_pubsub) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.25\n'}
+[1.001124] (-) TimerEvent: {}
+[1.017921] (cpp_pubsub) StdoutLine: {'line': b'-- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  \n'}
+[1.018532] (cpp_pubsub) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[1.052916] (cpp_pubsub) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[1.101199] (-) TimerEvent: {}
+[1.132924] (cpp_pubsub) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[1.136285] (cpp_pubsub) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[1.139584] (cpp_pubsub) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[1.201288] (-) TimerEvent: {}
+[1.229951] (cpp_pubsub) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[1.301376] (-) TimerEvent: {}
+[1.310725] (cpp_pubsub) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[1.397772] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  \n'}
+[1.398257] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  \n'}
+[1.398762] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  \n'}
+[1.399266] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  \n'}
+[1.399735] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  \n'}
+[1.400206] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  \n'}
+[1.400511] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_2D: /usr/include/pcl-1.12  \n'}
+[1.400796] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_GEOMETRY: /usr/include/pcl-1.12  \n'}
+[1.401250] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  \n'}
+[1.401421] (-) TimerEvent: {}
+[1.401767] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  \n'}
+[1.402303] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  \n'}
+[1.402750] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  \n'}
+[1.403373] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  \n'}
+[1.403903] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  \n'}
+[1.404411] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  \n'}
+[1.404801] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  \n'}
+[1.405283] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  \n'}
+[1.405783] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  \n'}
+[1.406301] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  \n'}
+[1.406661] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  \n'}
+[1.407163] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  \n'}
+[1.407588] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_MODELER: /usr/include/pcl-1.12  \n'}
+[1.408019] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  \n'}
+[1.408597] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  \n'}
+[1.408996] (cpp_pubsub) StdoutLine: {'line': b'-- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  \n'}
+[1.413914] (cpp_pubsub) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.438791] (cpp_pubsub) StdoutLine: {'line': b'-- Generating done\n'}
+[1.440696] (cpp_pubsub) StdoutLine: {'line': b'-- Build files have been written to: /root/ros_ws/build/cpp_pubsub\n'}
+[1.461496] (cpp_pubsub) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target talker\x1b[0m\n'}
+[1.478843] (cpp_pubsub) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/talker.dir/src/publisher_member_function.cpp.o\x1b[0m\n'}
+[1.501507] (-) TimerEvent: {}
+[1.601725] (-) TimerEvent: {}
+[1.701966] (-) TimerEvent: {}
+[1.802230] (-) TimerEvent: {}
+[1.902473] (-) TimerEvent: {}
+[2.002738] (-) TimerEvent: {}
+[2.102986] (-) TimerEvent: {}
+[2.203286] (-) TimerEvent: {}
+[2.303582] (-) TimerEvent: {}
+[2.404060] (-) TimerEvent: {}
+[2.504324] (-) TimerEvent: {}
+[2.604570] (-) TimerEvent: {}
+[2.704817] (-) TimerEvent: {}
+[2.805035] (-) TimerEvent: {}
+[2.905255] (-) TimerEvent: {}
+[3.005414] (-) TimerEvent: {}
+[3.105579] (-) TimerEvent: {}
+[3.205745] (-) TimerEvent: {}
+[3.305922] (-) TimerEvent: {}
+[3.406157] (-) TimerEvent: {}
+[3.506350] (-) TimerEvent: {}
+[3.606529] (-) TimerEvent: {}
+[3.706787] (-) TimerEvent: {}
+[3.807013] (-) TimerEvent: {}
+[3.907235] (-) TimerEvent: {}
+[4.007484] (-) TimerEvent: {}
+[4.107722] (-) TimerEvent: {}
+[4.207957] (-) TimerEvent: {}
+[4.308163] (-) TimerEvent: {}
+[4.408392] (-) TimerEvent: {}
+[4.508615] (-) TimerEvent: {}
+[4.608825] (-) TimerEvent: {}
+[4.709068] (-) TimerEvent: {}
+[4.809309] (-) TimerEvent: {}
+[4.909544] (-) TimerEvent: {}
+[5.009786] (-) TimerEvent: {}
+[5.110027] (-) TimerEvent: {}
+[5.210302] (-) TimerEvent: {}
+[5.310575] (-) TimerEvent: {}
+[5.410829] (-) TimerEvent: {}
+[5.511071] (-) TimerEvent: {}
+[5.611314] (-) TimerEvent: {}
+[5.711548] (-) TimerEvent: {}
+[5.811778] (-) TimerEvent: {}
+[5.911995] (-) TimerEvent: {}
+[6.012233] (-) TimerEvent: {}
+[6.112470] (-) TimerEvent: {}
+[6.212700] (-) TimerEvent: {}
+[6.312916] (-) TimerEvent: {}
+[6.413147] (-) TimerEvent: {}
+[6.513375] (-) TimerEvent: {}
+[6.613601] (-) TimerEvent: {}
+[6.713864] (-) TimerEvent: {}
+[6.814120] (-) TimerEvent: {}
+[6.914351] (-) TimerEvent: {}
+[7.014584] (-) TimerEvent: {}
+[7.114816] (-) TimerEvent: {}
+[7.215037] (-) TimerEvent: {}
+[7.315270] (-) TimerEvent: {}
+[7.415487] (-) TimerEvent: {}
+[7.515748] (-) TimerEvent: {}
+[7.615985] (-) TimerEvent: {}
+[7.716235] (-) TimerEvent: {}
+[7.816509] (-) TimerEvent: {}
+[7.840279] (cpp_pubsub) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable talker\x1b[0m\n'}
+[7.916606] (-) TimerEvent: {}
+[8.016850] (-) TimerEvent: {}
+[8.117090] (-) TimerEvent: {}
+[8.217331] (-) TimerEvent: {}
+[8.226566] (cpp_pubsub) StdoutLine: {'line': b'[100%] Built target talker\n'}
+[8.233308] (cpp_pubsub) CommandEnded: {'returncode': 0}
+[8.250057] (cpp_pubsub) JobProgress: {'identifier': 'cpp_pubsub', 'progress': 'install'}
+[8.256124] (cpp_pubsub) Command: {'cmd': ['/usr/bin/cmake', '--install', '/root/ros_ws/build/cpp_pubsub'], 'cwd': '/root/ros_ws/build/cpp_pubsub', 'env': OrderedDict([('HOSTNAME', 'tippy'), ('GIT_ASKPASS', '/root/.vscode-server/bin/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba/bin/helpers/browser.sh'), ('HOME', '/root'), ('TERM_PROGRAM_VERSION', '1.96.4'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-b1e1dbaa-9a66-4d81-8de6-cf0322f3ebfe.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-ace85d96-174e-4454-9a96-65d5bfb4ac82.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-ace85d96-174e-4454-9a96-65d5bfb4ac82.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-bade0d0e14.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-ace85d96-174e-4454-9a96-65d5bfb4ac82.sock'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/root/ros_ws/build/cpp_pubsub'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[8.261019] (cpp_pubsub) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[8.261116] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /root/ros_ws/install/cpp_pubsub/share/ament_index/resource_index/package_run_dependencies/cpp_pubsub\n'}
+[8.261288] (cpp_pubsub) StdoutLine: {'line': b'-- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/ament_index/resource_index/parent_prefix_path/cpp_pubsub\n'}
+[8.261346] (cpp_pubsub) StdoutLine: {'line': b'-- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.sh\n'}
+[8.261402] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.dsv\n'}
+[8.261561] (cpp_pubsub) StdoutLine: {'line': b'-- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/environment/path.sh\n'}
+[8.261614] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/environment/path.dsv\n'}
+[8.261729] (cpp_pubsub) StdoutLine: {'line': b'-- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.bash\n'}
+[8.261779] (cpp_pubsub) StdoutLine: {'line': b'-- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.sh\n'}
+[8.261829] (cpp_pubsub) StdoutLine: {'line': b'-- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.zsh\n'}
+[8.261879] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.dsv\n'}
+[8.261984] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/package.dsv\n'}
+[8.262121] (cpp_pubsub) StdoutLine: {'line': b'-- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/ament_index/resource_index/packages/cpp_pubsub\n'}
+[8.262184] (cpp_pubsub) StdoutLine: {'line': b'-- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig.cmake\n'}
+[8.262234] (cpp_pubsub) StdoutLine: {'line': b'-- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig-version.cmake\n'}
+[8.262265] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/package.xml\n'}
+[8.262444] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /root/ros_ws/install/cpp_pubsub/lib/cpp_pubsub/talker\n'}
+[8.272907] (cpp_pubsub) StdoutLine: {'line': b'-- Set runtime path of "/root/ros_ws/install/cpp_pubsub/lib/cpp_pubsub/talker" to ""\n'}
+[8.274133] (cpp_pubsub) CommandEnded: {'returncode': 0}
+[8.298827] (cpp_pubsub) JobEnded: {'identifier': 'cpp_pubsub', 'rc': 0}
+[8.299293] (-) EventReactorShutdown: {}

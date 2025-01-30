@@ -1,0 +1,26 @@
+[0.008s] Invoking command in '/root/ros_ws/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros_ws/build/cpp_pubsub -- -j32 -l32
+[0.037s] [35m[1mConsolidate compiler generated dependencies of target talker[0m
+[0.068s] [ 50%] [32mBuilding CXX object CMakeFiles/talker.dir/src/publisher_member_function.cpp.o[0m
+[6.294s] [100%] [32m[1mLinking CXX executable talker[0m
+[6.684s] [100%] Built target talker
+[6.691s] Invoked command in '/root/ros_ws/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros_ws/build/cpp_pubsub -- -j32 -l32
+[6.711s] Invoking command in '/root/ros_ws/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /root/ros_ws/build/cpp_pubsub
+[6.715s] -- Install configuration: ""
+[6.715s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/ament_index/resource_index/package_run_dependencies/cpp_pubsub
+[6.715s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/ament_index/resource_index/parent_prefix_path/cpp_pubsub
+[6.715s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.sh
+[6.715s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.dsv
+[6.715s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/environment/path.sh
+[6.715s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/environment/path.dsv
+[6.715s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.bash
+[6.715s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.sh
+[6.715s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.zsh
+[6.715s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.dsv
+[6.715s] -- Installing: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/package.dsv
+[6.715s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/ament_index/resource_index/packages/cpp_pubsub
+[6.715s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig.cmake
+[6.716s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig-version.cmake
+[6.716s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/package.xml
+[6.716s] -- Installing: /root/ros_ws/install/cpp_pubsub/lib/cpp_pubsub/talker
+[6.727s] -- Set runtime path of "/root/ros_ws/install/cpp_pubsub/lib/cpp_pubsub/talker" to ""
+[6.728s] Invoked command in '/root/ros_ws/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /root/ros_ws/build/cpp_pubsub

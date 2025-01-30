@@ -1,0 +1,6 @@
+Invoking command in '/root/ros_ws/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /root/ros_ws/src/cpp_pubsub -DCMAKE_INSTALL_PREFIX=/root/ros_ws/install/cpp_pubsub
+Invoked command in '/root/ros_ws/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /root/ros_ws/src/cpp_pubsub -DCMAKE_INSTALL_PREFIX=/root/ros_ws/install/cpp_pubsub
+Invoking command in '/root/ros_ws/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros_ws/build/cpp_pubsub -- -j32 -l32
+Invoked command in '/root/ros_ws/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros_ws/build/cpp_pubsub -- -j32 -l32
+Invoking command in '/root/ros_ws/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /root/ros_ws/build/cpp_pubsub
+Invoked command in '/root/ros_ws/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /root/ros_ws/build/cpp_pubsub

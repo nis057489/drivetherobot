@@ -1,0 +1,93 @@
+[0.007s] Invoking command in '/root/ros_ws/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros_ws/build/cpp_pubsub -- -j32 -l32
+[0.024s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.088s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.123s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.123s] -- Configured cppcheck include dirs: 
+[0.123s] -- Configured cppcheck exclude dirs and/or files: 
+[0.123s] -- Added test 'lint_cmake' to check CMake code style
+[0.124s] -- Added test 'uncrustify' to check C / C++ code style
+[0.124s] -- Configured uncrustify additional arguments: 
+[0.124s] -- Added test 'xmllint' to check XML markup files
+[0.124s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[0.139s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.140s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.143s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.148s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.154s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.171s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.172s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.232s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.258s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.265s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.275s] -- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)
+[0.307s] -- Checking for module 'eigen3'
+[0.316s] --   Found eigen3, version 3.4.0
+[0.336s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[0.336s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[0.362s] -- Checking for module 'flann'
+[0.370s] --   Found flann, version 1.9.1
+[0.391s] -- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  
+[0.391s] -- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)
+[0.986s] -- Checking for module 'libusb-1.0'
+[0.994s] --   Found libusb-1.0, version 1.0.25
+[1.018s] -- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[1.018s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[1.053s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[1.133s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[1.136s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[1.139s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[1.230s] -- Found Qhull version 8.0.2
+[1.310s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[1.398s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[1.398s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[1.398s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[1.399s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[1.399s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[1.400s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[1.400s] -- Found PCL_2D: /usr/include/pcl-1.12  
+[1.401s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.12  
+[1.401s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[1.401s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[1.402s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[1.402s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[1.403s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[1.404s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[1.404s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[1.405s] -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+[1.405s] -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+[1.405s] -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+[1.406s] -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+[1.406s] -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+[1.407s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  
+[1.407s] -- Found PCL_MODELER: /usr/include/pcl-1.12  
+[1.408s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  
+[1.408s] -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+[1.409s] -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+[1.414s] -- Configuring done
+[1.439s] -- Generating done
+[1.440s] -- Build files have been written to: /root/ros_ws/build/cpp_pubsub
+[1.461s] [35m[1mConsolidate compiler generated dependencies of target talker[0m
+[1.479s] [ 50%] [32mBuilding CXX object CMakeFiles/talker.dir/src/publisher_member_function.cpp.o[0m
+[7.840s] [100%] [32m[1mLinking CXX executable talker[0m
+[8.226s] [100%] Built target talker
+[8.233s] Invoked command in '/root/ros_ws/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros_ws/build/cpp_pubsub -- -j32 -l32
+[8.256s] Invoking command in '/root/ros_ws/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /root/ros_ws/build/cpp_pubsub
+[8.261s] -- Install configuration: ""
+[8.261s] -- Installing: /root/ros_ws/install/cpp_pubsub/share/ament_index/resource_index/package_run_dependencies/cpp_pubsub
+[8.261s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/ament_index/resource_index/parent_prefix_path/cpp_pubsub
+[8.261s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.sh
+[8.261s] -- Installing: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.dsv
+[8.261s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/environment/path.sh
+[8.261s] -- Installing: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/environment/path.dsv
+[8.261s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.bash
+[8.262s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.sh
+[8.262s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.zsh
+[8.262s] -- Installing: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.dsv
+[8.262s] -- Installing: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/package.dsv
+[8.262s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/ament_index/resource_index/packages/cpp_pubsub
+[8.262s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig.cmake
+[8.262s] -- Up-to-date: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig-version.cmake
+[8.262s] -- Installing: /root/ros_ws/install/cpp_pubsub/share/cpp_pubsub/package.xml
+[8.262s] -- Installing: /root/ros_ws/install/cpp_pubsub/lib/cpp_pubsub/talker
+[8.273s] -- Set runtime path of "/root/ros_ws/install/cpp_pubsub/lib/cpp_pubsub/talker" to ""
+[8.274s] Invoked command in '/root/ros_ws/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /root/ros_ws/build/cpp_pubsub

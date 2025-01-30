@@ -1,0 +1,2 @@
+Invoking command in '/root/ros_ws/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros_ws/build/cpp_pubsub -- -j32 -l32
+Invoked command in '/root/ros_ws/build/cpp_pubsub' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros_ws/build/cpp_pubsub -- -j32 -l32

@@ -1,0 +1,32 @@
+[0.006s] Invoking command in '/root/ros_ws/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros_ws/build/cpp_pubsub -- -j32 -l32
+[0.022s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.086s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.098s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.099s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.102s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.107s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.113s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.131s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.166s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.167s] -- Configured cppcheck include dirs: 
+[0.167s] -- Configured cppcheck exclude dirs and/or files: 
+[0.167s] -- Added test 'lint_cmake' to check CMake code style
+[0.167s] -- Added test 'uncrustify' to check C / C++ code style
+[0.167s] -- Configured uncrustify additional arguments: 
+[0.168s] -- Added test 'xmllint' to check XML markup files
+[0.168s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[0.182s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.182s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.243s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.263s] -- Configuring done
+[0.270s] -- Generating done
+[0.271s] -- Build files have been written to: /root/ros_ws/build/cpp_pubsub
+[0.291s] [ 50%] [32mBuilding CXX object CMakeFiles/talker.dir/src/publisher_member_function.cpp.o[0m
+[0.457s] [01m[K/root/ros_ws/src/cpp_pubsub/src/publisher_member_function.cpp:24:10:[m[K [01;31m[Kfatal error: [m[Ksensor_msgs/msg/laser_scan.hpp: No such file or directory
+[0.457s]    24 | #include [01;31m[K"sensor_msgs/msg/laser_scan.hpp"[m[K
+[0.457s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.457s] compilation terminated.
+[0.459s] gmake[2]: *** [CMakeFiles/talker.dir/build.make:76: CMakeFiles/talker.dir/src/publisher_member_function.cpp.o] Error 1
+[0.459s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/talker.dir/all] Error 2
+[0.459s] gmake: *** [Makefile:146: all] Error 2
+[0.461s] Invoked command in '/root/ros_ws/build/cpp_pubsub' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros_ws/build/cpp_pubsub -- -j32 -l32
