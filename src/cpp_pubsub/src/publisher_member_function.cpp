@@ -12,13 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 #include <chrono>
+#include <cmath>
+#include <vector>
 #include <functional>
 #include <memory>
-#include <string>
-#include <vector>
-#include <queue>
-#include <limits>
-#include <cmath>
+#include <algorithm>
 
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/twist.hpp"
@@ -29,23 +27,21 @@
 
 using namespace std::chrono_literals;
 
-enum RobotState { MOVING_FORWARD, TURNING, RECOVERING };
-
-class AutonomousCarterDriver : public rclcpp::Node
+class VFHNavigator : public rclcpp::Node
 {
 public:
-  AutonomousCarterDriver()
-  : Node("autonomous_carter_driver"), state_(MOVING_FORWARD), stable_clear_path_count_(0)
+  VFHNavigator()
+  : Node("vfh_navigator")
   {
     publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
 
     subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
       "/front_3d_lidar/lidar_points", 10, 
-      std::bind(&AutonomousCarterDriver::pointcloud_callback, this, std::placeholders::_1)
+      std::bind(&VFHNavigator::pointcloud_callback, this, std::placeholders::_1)
     );
 
     timer_ = this->create_wall_timer(
-      200ms, std::bind(&AutonomousCarterDriver::timer_callback, this));
+      200ms, std::bind(&VFHNavigator::navigate, this));
   }
 
 private:
@@ -54,103 +50,67 @@ private:
     pcl::PointCloud<pcl::PointXYZ> cloud;
     pcl::fromROSMsg(*msg, cloud);
 
-    float min_distance_ahead = std::numeric_limits<float>::infinity();
-    float min_distance_left = std::numeric_limits<float>::infinity();
-    float min_distance_right = std::numeric_limits<float>::infinity();
+    // Clear and resize the histogram for this scan
+    histogram_.assign(36, 0.0);  // Coarser resolution: 10 degrees per bin
 
-    const float forward_width = 0.5;
-    const float min_distance_threshold = 0.2;  // Ignore extremely close noise
-    const float side_detection_threshold = 1.0;
-
+    // Build the histogram by processing each point
     for (const auto& point : cloud) {
       float distance = std::sqrt(point.x * point.x + point.y * point.y);
-      if (distance < min_distance_threshold) {
-        continue;  // Ignore noisy or irrelevant points
+      if (distance < 0.2 || distance > 2.5) {
+        continue;  // Ignore very close or far readings
       }
 
-      if (point.x > 0.0 && std::abs(point.y) < forward_width && point.z > -0.3 && point.z < 0.3) {
-        if (distance < min_distance_ahead) {
-          min_distance_ahead = distance;
-        }
-      } else if (point.x > 0.0 && point.y > 0.3) {
-        if (distance < min_distance_right) {
-          min_distance_right = distance;
-        }
-      } else if (point.x > 0.0 && point.y < -0.3) {
-        if (distance < min_distance_left) {
-          min_distance_left = distance;
-        }
+      // Determine the angle of the point relative to the robot
+      int angle = static_cast<int>((std::atan2(point.y, point.x) * 180.0 / M_PI + 360)) % 360;
+      int bin_index = angle / 10;  // Group into 10-degree bins
+
+      // Amplify obstacle weight for nearby obstacles
+      float obstacle_weight = std::min(1.0 / (distance * distance), 10.0);
+      histogram_[bin_index] += obstacle_weight;
+    }
+  }
+
+  void navigate()
+  {
+    // Normalize histogram values
+    float max_density = *std::max_element(histogram_.begin(), histogram_.end());
+    if (max_density > 0) {
+      for (float &density : histogram_) {
+        density /= max_density;
       }
     }
 
-    obstacle_detected_ = (min_distance_ahead < 0.5);
-    clear_direction_ = (min_distance_right > min_distance_left && min_distance_right > side_detection_threshold)
-                         ? "right" : "left";
+    // Find the clearest direction by minimizing obstacle and goal cost
+    int best_bin = -1;
+    float min_cost = std::numeric_limits<float>::infinity();
 
-    RCLCPP_INFO(this->get_logger(), 
-                "Ahead: %.2f m, Left: %.2f m, Right: %.2f m, Turn to: %s",
-                min_distance_ahead, min_distance_left, min_distance_right, clear_direction_.c_str());
-  }
+    for (int bin = 0; bin < 36; ++bin) {
+      int angle = bin * 10;
+      float obstacle_cost = histogram_[bin];
+      float goal_cost = std::abs(angle - target_direction_) * 0.02;  // Favor directions toward the goal
+      float total_cost = obstacle_cost + goal_cost;
 
-  void timer_callback()
-  {
+      if (total_cost < min_cost) {
+        min_cost = total_cost;
+        best_bin = bin;
+      }
+    }
+
+    // Generate velocity command based on the best direction
     auto twist_msg = geometry_msgs::msg::Twist();
+    if (best_bin == -1 || min_cost > 0.8) {
+      // No clear path found
+      RCLCPP_WARN(this->get_logger(), "No clear path, stopping.");
+      twist_msg.linear.x = 0.0;
+      twist_msg.angular.z = 0.0;
+    } else {
+      // Move in the best direction
+      int best_direction = best_bin * 10;
+      float angular_speed = (best_direction - 180) * 0.01;  // Convert to angular velocity
+      RCLCPP_INFO(this->get_logger(), "Best direction: %d degrees, Angular Speed: %.2f", best_direction, angular_speed);
 
-    switch (state_) {
-      case MOVING_FORWARD:
-        if (obstacle_detected_) {
-          RCLCPP_INFO(this->get_logger(), "Obstacle detected! Switching to TURNING state.");
-          state_ = TURNING;
-          turn_timer_ = 5;
-          stable_clear_path_count_ = 0;
-        } else {
-          twist_msg.linear.x = 0.5;
-          twist_msg.angular.z = 0.0;
-          forward_motion_timer_++;  // Track forward progress
-          RCLCPP_INFO(this->get_logger(), "Path is clear, moving forward...");
-        }
-
-        // If the robot is stuck moving forward for too long without progress, switch to recovery
-        if (forward_motion_timer_ > 10) {
-          RCLCPP_WARN(this->get_logger(), "No progress detected, switching to RECOVERING state.");
-          state_ = RECOVERING;
-          recovery_timer_ = 5;
-        }
-        break;
-
-      case TURNING:
-        if (turn_timer_ > 0) {
-          twist_msg.linear.x = 0.0;
-          twist_msg.angular.z = (clear_direction_ == "right") ? -0.5 : 0.5;
-          turn_timer_--;
-          RCLCPP_INFO(this->get_logger(), "Turning %s... Remaining turns: %d", clear_direction_.c_str(), turn_timer_);
-        } else {
-          if (!obstacle_detected_) {
-            stable_clear_path_count_++;
-            if (stable_clear_path_count_ >= 3) {
-              RCLCPP_INFO(this->get_logger(), "Turn complete. Stable path detected, switching to MOVING_FORWARD.");
-              state_ = MOVING_FORWARD;
-              forward_motion_timer_ = 0;  // Reset forward progress timer
-            }
-          } else {
-            stable_clear_path_count_ = 0;
-          }
-        }
-        break;
-
-      case RECOVERING:
-        if (recovery_timer_ > 0) {
-          // Reverse and turn slightly
-          twist_msg.linear.x = -0.2;
-          twist_msg.angular.z = (clear_direction_ == "right") ? 0.3 : -0.3;
-          recovery_timer_--;
-          RCLCPP_INFO(this->get_logger(), "Recovering... Remaining recovery cycles: %d", recovery_timer_);
-        } else {
-          RCLCPP_INFO(this->get_logger(), "Recovery complete, switching to MOVING_FORWARD.");
-          state_ = MOVING_FORWARD;
-          forward_motion_timer_ = 0;
-        }
-        break;
+      twist_msg.linear.x = 0.4;
+      twist_msg.angular.z = angular_speed;
     }
 
     publisher_->publish(twist_msg);
@@ -160,19 +120,14 @@ private:
   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
   rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscription_;
 
-  RobotState state_;
-  bool obstacle_detected_;
-  int turn_timer_;
-  int stable_clear_path_count_;
-  int forward_motion_timer_ = 0;
-  int recovery_timer_ = 0;
-  std::string clear_direction_;
+  std::vector<float> histogram_;  // Polar histogram with 10-degree bins
+  int target_direction_ = 180;    // Default to moving forward
 };
 
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<AutonomousCarterDriver>());
+  rclcpp::spin(std::make_shared<VFHNavigator>());
   rclcpp::shutdown();
   return 0;
 }
