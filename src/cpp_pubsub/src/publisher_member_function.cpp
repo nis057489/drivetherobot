@@ -13,6 +13,7 @@
 // limitations under the License.
 #include <chrono>
 #include <cmath>
+#include <limits>
 #include <vector>
 #include <functional>
 #include <memory>
@@ -21,7 +22,8 @@
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "sensor_msgs/msg/point_cloud2.hpp"
-#include "pcl_conversions/pcl_conversions.h"
+
+#include "pcl_conversions/pcl_conversions.h" // For converting ROS <-> PCL messages
 #include "pcl/point_cloud.h"
 #include "pcl/point_types.h"
 
@@ -31,67 +33,92 @@ class VFHNavigator : public rclcpp::Node
 {
 public:
   VFHNavigator()
-  : Node("vfh_navigator")
+      : Node("vfh_navigator"),
+        min_distance_ahead_(std::numeric_limits<float>::infinity())
   {
+    // Publisher for velocity commands
     publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
 
+    // Subscriber for LiDAR point cloud data
     subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
-      "/front_3d_lidar/lidar_points", 10, 
-      std::bind(&VFHNavigator::pointcloud_callback, this, std::placeholders::_1)
-    );
+        "/front_3d_lidar/lidar_points", 10,
+        std::bind(&VFHNavigator::pointcloud_callback, this, std::placeholders::_1));
 
+    // Timer to regularly trigger navigation updates
     timer_ = this->create_wall_timer(
-      200ms, std::bind(&VFHNavigator::navigate, this));
+        200ms, std::bind(&VFHNavigator::navigate, this));
   }
 
 private:
+  // Callback to process incoming point cloud data
   void pointcloud_callback(const sensor_msgs::msg::PointCloud2::SharedPtr msg)
   {
+    // Convert the ROS point cloud message to a PCL point cloud
     pcl::PointCloud<pcl::PointXYZ> cloud;
     pcl::fromROSMsg(*msg, cloud);
 
-    min_distance_ahead_ = std::numeric_limits<float>::infinity();  // Reset forward obstacle distance
+    // Reset the minimum distance for each new point cloud message
+    min_distance_ahead_ = std::numeric_limits<float>::infinity();
 
-    for (const auto& point : cloud) {
-        if (point.x > 0.2 && point.x < 3.0 && point.z > -1.0 && point.z < 2.0) {
-            float distance = std::sqrt(point.x * point.x + point.y * point.y);
+    // Process each point in the cloud
+    for (const auto &point : cloud.points)
+    {
+      // Filter points that are within a certain rectangular region in front of the robot.
+      // Adjust these thresholds based on your sensor’s mounting and desired field-of-view.
+      if (point.x > 0.2 && point.x < 3.0 && // Only consider points in front (x positive)
+          point.z > -1.0 && point.z < 2.0)  // Consider points within a specific height range
+      {
+        // Calculate horizontal distance (ignoring height) and angle relative to the x-axis
+        float distance = std::sqrt(point.x * point.x + point.y * point.y);
+        float angle = std::atan2(point.y, point.x) * 180.0 / M_PI;
 
-            float angle = std::atan2(point.y, point.x) * 180.0 / M_PI;
-            if (std::abs(angle - 180) < 30) {  // Within 30 degrees of forward direction
-                if (distance < min_distance_ahead_) {
-                    min_distance_ahead_ = distance;
-                }
-            }
+        // Check if the point is approximately in the forward direction (within ±30°)
+        if (std::abs(angle) < 30.0)
+        {
+          // Update the closest detected obstacle
+          if (distance < min_distance_ahead_)
+          {
+            min_distance_ahead_ = distance;
+          }
         }
+      }
     }
 
-    RCLCPP_INFO(this->get_logger(), "Min distance ahead after processing: %.2f meters", min_distance_ahead_);
+    RCLCPP_INFO(this->get_logger(), "Min distance ahead: %.2f meters", min_distance_ahead_);
   }
 
+  // Timer callback for navigation decisions
   void navigate()
   {
     auto twist_msg = geometry_msgs::msg::Twist();
 
-    if (min_distance_ahead_ < 1.0) {
+    // If an obstacle is detected closer than 1.0 meter, stop and turn.
+    if (min_distance_ahead_ < 1.0)
+    {
       RCLCPP_WARN(this->get_logger(), "Obstacle detected! Stopping and turning.");
       twist_msg.linear.x = 0.0;
-      twist_msg.angular.z = 1.0;  // Turn to avoid obstacle
-    } else {
-      twist_msg.linear.x = 0.3;  // Move forward
+      twist_msg.angular.z = 1.0; // Rotate to avoid the obstacle
+    }
+    else
+    {
+      // No close obstacle detected: move forward
+      twist_msg.linear.x = 0.3;
       twist_msg.angular.z = 0.0;
     }
 
     publisher_->publish(twist_msg);
   }
 
+  // Timer, publisher, and subscriber objects
   rclcpp::TimerBase::SharedPtr timer_;
   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
   rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscription_;
 
-  float min_distance_ahead_;  // Closest obstacle directly ahead
+  // Variable to store the closest obstacle distance detected in front
+  float min_distance_ahead_;
 };
 
-int main(int argc, char * argv[])
+int main(int argc, char *argv[])
 {
   rclcpp::init(argc, argv);
   rclcpp::spin(std::make_shared<VFHNavigator>());

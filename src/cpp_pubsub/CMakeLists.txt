@@ -35,6 +35,18 @@ find_package(pcl_msgs REQUIRED)
 add_executable(talker src/publisher_member_function.cpp)
 ament_target_dependencies(talker rclcpp std_msgs geometry_msgs sensor_msgs pcl_conversions pcl_msgs)
 
+# Install configuration files
+install(
+  DIRECTORY config
+  DESTINATION share/${PROJECT_NAME}
+)
+
+# Install launch files
+install(
+  DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
 install(TARGETS
   talker
   DESTINATION lib/${PROJECT_NAME})

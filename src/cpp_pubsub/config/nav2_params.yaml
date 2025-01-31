@@ -1,0 +1,86 @@
+# config/nav2_params.yaml
+
+# Enable simulation time if you are using a simulator like Isaac Sim.
+use_sim_time: true
+
+# Global Planner parameters
+planner_server:
+  ros__parameters:
+    expected_planner_frequency: 20.0
+    use_sim_time: true
+
+# Local Planner (Controller) parameters: using DWB by default
+controller_server:
+  ros__parameters:
+    use_sim_time: true
+    controller_frequency: 20.0
+    # DWB-specific parameters can be added here. See DWB documentation for details.
+
+# Behavior Tree Navigator
+bt_navigator:
+  ros__parameters:
+    use_sim_time: true
+
+# Global Costmap Configuration
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_link
+  update_frequency: 5.0
+  publish_frequency: 2.0
+  static_map: false
+  rolling_window: false
+  width: 20.0
+  height: 20.0
+  resolution: 0.05
+  plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+
+  static_layer:
+    enabled: false
+
+  obstacle_layer:
+    enabled: true
+    observation_sources: laser_scan_sensor
+    laser_scan_sensor:
+      data_type: LaserScan
+      topic: /scan
+      marking: true
+      clearing: true
+      min_obstacle_height: 0.0
+      max_obstacle_height: 2.0
+      obstacle_range: 4.0
+      raytrace_range: 6.0
+
+  inflation_layer:
+    enabled: true
+    inflation_radius: 0.55
+    cost_scaling_factor: 10.0
+
+# Local Costmap Configuration
+local_costmap:
+  global_frame: odom
+  robot_base_frame: base_link
+  update_frequency: 5.0
+  publish_frequency: 2.0
+  rolling_window: true
+  width: 3.0
+  height: 3.0
+  resolution: 0.05
+  plugins: ["obstacle_layer", "inflation_layer"]
+
+  obstacle_layer:
+    enabled: true
+    observation_sources: laser_scan_sensor
+    laser_scan_sensor:
+      data_type: LaserScan
+      topic: /scan
+      marking: true
+      clearing: true
+      min_obstacle_height: 0.0
+      max_obstacle_height: 2.0
+      obstacle_range: 4.0
+      raytrace_range: 6.0
+
+  inflation_layer:
+    enabled: true
+    inflation_radius: 0.55
+    cost_scaling_factor: 10.0
